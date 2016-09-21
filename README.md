@@ -1,4 +1,4 @@
-# Java for JS Developers
+# JS for Java Developers
 
 - [JavaScript and Java](#javascript-and-java)
 - [Comments](#comments)
@@ -9,9 +9,12 @@
   - [String literals](#string-literals)
 - [Loops](#loops)
   - [For/in](#for-in)
-- [Functions](#functions)
-  - [Defining functions and Calling functions](#defining-functions-and-calling-functions)
+- [Methods](#methods)
+  - [Defining and Calling methods](#defining-and-calling-methods)
 - [Classes](#classes)
+  - [Class declarations](#class-declarations)
+  - [Constructor](#constructor)
+  - [Getters and Setters](#getters-and-setters)
 
 JavaScript and Java
 -----------------
@@ -101,7 +104,7 @@ name = 12;
 ES5
 
 ```js
-//"19" - 9 = 10
+
 console.log("19" - 9); 
 //10
 ```
@@ -194,24 +197,35 @@ for (String myStr : strArray) {
 }
 ```
 
-Functions
+Methods
 ---------
 
-##Defining functions and Calling functions
+##Defining and Calling methods
 ES5
 ```js
-function aow() {
-  console.log("aow js");
-}
-aow();
+var Person = (function () {
+    function Person(name) {
+        this.name = name;
+    }
+    // Methods
+    Person.prototype.doSomething = function () {
+        console.log("I'm a " + this.name);
+    };
+    return Person;
+})();
+
+var person1 = new Person("Victor Igor");
+person1.doSomething();
 ```
 
 Java
 ```java
-  static void aow(){
-    System.out.println("aow java");
+class Person{
+  String name;
+  void doSomething(){
+    System.out.println("I'm a " + this.name;)
   }
-  aow(); //in main
+}
 ```
 
 Classes
@@ -222,17 +236,136 @@ Classes
 ES5
 
 ```js
-var person = function(){
-
+function Person(){
+  // field, constructor, and 
+  // method declarations
 }
 ```
 
 ES6
 ```js
 class Person {
-
+  // field, constructor, and 
+  // method declarations
 }
 ```
 
 Java
 ```java
+class Person {
+  // field, constructor, and 
+  // method declarations
+}
+```
+
+##Constructor
+
+ES5
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+var person = new Person("Victor Igor", 80); //instance
+console.log(person.name, person.age);    
+```
+
+ES6
+```js
+class Person {
+  constructor(name, age){
+    this.name = name;
+    this.age  = age;
+  }
+}
+let person = new Person("Victor Igor", 80);
+```
+
+Java
+```java
+class Person {
+  String name;
+  int age;
+  Person(String name, int age){
+    this.name = name;
+    this.age  = age;
+  }
+}
+```
+
+##Getters and Setters
+
+ES5
+```js
+function Person (name, age) {
+  var _name = name;
+  var _age = age;
+  this.setName = function(name) {
+    _name = name;
+  }
+  this.getName = function() {
+      return _name;
+  }
+	this.setAge = function(age){
+        _age = age;
+	}
+  this.getAge = function(){
+    return _age;
+  }
+  
+}
+
+//instantiate the Person class with some arguments
+var person1 = new Person("Victor Igor1", 80);
+console.log("Name: ", person1.getName() + " Age: " + person1.getAge());
+```
+
+ES6
+```js
+class Person {
+  constructor(name, age) {
+    // Check that (name, age) is a valid date
+    
+    // If it is, use it to initialize "this" date's ordinary variables
+    let _name = name;
+    let _age = age;
+    
+    this.setName = function(name){
+    	_name = name;
+    }
+    this.getName = function() {
+      return _name;
+    }
+  }
+}
+let person1 = new Person("Victor Igor", 20);
+console.log(person1.getName());
+```
+
+Java
+```js
+class Person {
+  private String name;
+  private int age;
+  Person(String name, int age){
+    this.name = name;
+    this.age  = age;
+  }
+  
+  String getName(){
+    return this.name;
+  }
+  
+  void setName(name){
+    this.name = name;
+  }
+  
+  String setAge(age){
+    this.age = age;
+  }
+  
+  void getAge(age){
+    this.age = age;
+  }
+}
+```
