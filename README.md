@@ -11,6 +11,7 @@
   - [For/in](#for-in)
 - [Functions](#functions)
   - [Defining functions and Calling functions](#defining-functions-and-calling-functions)
+- [Classes](#classes)
 
 JavaScript and Java
 -----------------
@@ -212,3 +213,26 @@ Java
   }
   aow(); //in main
 ```
+
+Classes
+--------
+
+##Class declarations
+
+ES5
+
+```js
+var person = function(){
+
+}
+```
+
+ES6
+```js
+class Person {
+
+}
+```
+
+Java
+```java
