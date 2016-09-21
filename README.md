@@ -15,6 +15,7 @@
   - [Class declarations](#class-declarations)
   - [Constructor](#constructor)
   - [Getters and Setters](#getters-and-setters)
+  - [Inheritance](#inheritance)
 
 JavaScript and Java
 -----------------
@@ -306,9 +307,9 @@ function Person (name, age) {
   this.getName = function() {
       return _name;
   }
-	this.setAge = function(age){
-        _age = age;
-	}
+  this.setAge = function(age){
+    _age = age;
+  }
   this.getAge = function(){
     return _age;
   }
@@ -331,10 +332,19 @@ class Person {
     let _age = age;
     
     this.setName = function(name){
-    	_name = name;
+       _name = name;
     }
+    
     this.getName = function() {
       return _name;
+    }
+    
+    this.setAge = function(age){
+       _age = age;
+    }
+    
+    this.getAge = function(){
+      return _age;
     }
   }
 }
