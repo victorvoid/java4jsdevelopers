@@ -353,28 +353,28 @@ console.log(person1.getName());
 ```
 
 Java
-```js
+```java
 class Person {
   private String name;
   private int age;
-  Person(String name, int age){
+  public Person(String name, int age){
     this.name = name;
     this.age  = age;
   }
   
-  String getName(){
+  public String getName(){
     return this.name;
   }
   
-  void setName(name){
+  public void setName(name){
     this.name = name;
   }
   
-  String setAge(age){
+  public String setAge(age){
     this.age = age;
   }
   
-  void getAge(age){
+  public void getAge(age){
     this.age = age;
   }
 }
