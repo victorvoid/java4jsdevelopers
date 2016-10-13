@@ -328,28 +328,27 @@ class Person {
     // Check that (name, age) is a valid date
     
     // If it is, use it to initialize "this" date's ordinary variables
-    let _name = name;
-    let _age = age;
-    
-    this.setName = function(name){
-       _name = name;
-    }
-    
-    this.getName = function() {
-      return _name;
-    }
-    
-    this.setAge = function(age){
-       _age = age;
-    }
-    
-    this.getAge = function(){
-      return _age;
-    }
+    this._name = name;
+    this._age = age;
+  }
+  set name(name){
+     this._name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set age(age){
+     this._age = age;
+  }
+
+  get age(){
+    return this._age;
   }
 }
 let person1 = new Person("Victor Igor", 20);
-console.log(person1.getName());
+console.log(person1.name);
 ```
 
 Java
